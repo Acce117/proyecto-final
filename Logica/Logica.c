@@ -1,6 +1,7 @@
 #include "estructura.h"
 #include <math.h>
 
+//TODO: Extract the distance equation to a separated function and reuse it everywhere
 int euclidean_distance(address addresses[], int cant, float x, float y){
 	int i, pos = 0;
 	float distance = sqrt(pow((x - addresses[0].coord_X), 2) + pow((y - addresses[0].coord_Y), 2));

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "Logica/estructura.h"
 
+//TODO: Rename it to validate_point_value
 void validation_xy(float *point, char* str){
     printf("Coordinate %s: ", str);
     while(scanf("%f", point) != 1 || *point < 0){
@@ -9,6 +10,8 @@ void validation_xy(float *point, char* str){
         fflush(stdin);
     }
 }
+
+//TODO: Rename it to validate_integer
 void validation_integer(int *data, char *str){
     printf("Number of %s: ", str);
 
@@ -19,7 +22,7 @@ void validation_integer(int *data, char *str){
     }
 
 }
-
+//TODO: Rename it to add_address
 int enter_new_data(address addresses[], int cant){
     int n;
     printf("Enter 1 if want to enter more data\nEnter -1 if you don't want to enter more data\n\n");
@@ -52,7 +55,7 @@ int enter_new_data(address addresses[], int cant){
     }
     return cant;
 }
-
+// TODO: Rename it to add_point
 void enter_point(float *point_x, float *point_y)
 {
     validation_xy(point_x, "X");
