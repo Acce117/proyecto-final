@@ -1,17 +1,18 @@
 #include "Logica/estructura.h"
+#include "lib/fort.h"
 
-void print_info(address addresses[], int i);
+void write_in_table(address, ft_table_t);
 
-void info(address addresses[], int);
+void print_addresses(address addresses[], int);
 
-int enter_new_data(address addresses[], int);
+int add_address(address addresses[], int);
 
 void show_if_has_number(address addresses[], int);
 
-void enter_point(float *x, float *y);
+void add_point(float *x, float *y);
 
-void show_far_address(address addresses[], int, float, float);
+void show_farthest_address(address addresses[], int, float, float);
 
-void if_not_2between(address addresses[], int);
+void print_empty_secondary_address_count(address addresses[], int);
 
 void atleast_5addresses(address [], int);

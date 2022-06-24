@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "Logica/estructura.h"
 
-void validation_xy(float *point, char* str){
+void validate_point_value(float *point, char* str){
     printf("Coordinate %s: ", str);
     while(scanf("%f", point) != 1 || *point < 0){
         printf("\aThe coordinate %s must be a floating number...", str);
@@ -9,7 +9,7 @@ void validation_xy(float *point, char* str){
         fflush(stdin);
     }
 }
-void validation_integer(int *data, char *str){
+void validate_integer(int *data, char *str){
     printf("Number of %s: ", str);
 
     while(scanf("%d", data) != 1 || data < 0){
@@ -20,7 +20,7 @@ void validation_integer(int *data, char *str){
 
 }
 
-int enter_new_data(address addresses[], int cant){
+int add_address(address addresses[], int cant){
     int n;
     printf("Enter 1 if want to enter more data\nEnter -1 if you don't want to enter more data\n\n");
     while(n != -1 && cant < 30){
@@ -31,8 +31,8 @@ int enter_new_data(address addresses[], int cant){
             fflush(stdin);
         }
         if(n == 1){
-            validation_xy(&addresses[cant].coord_X, "X");
-            validation_xy(&addresses[cant].coord_Y, "Y");
+            validate_point_value(&addresses[cant].coord_X, "X");
+            validate_point_value(&addresses[cant].coord_Y, "Y");
 
             printf("Main street: ");
             scanf("%s", addresses[cant].main_street);
@@ -41,11 +41,12 @@ int enter_new_data(address addresses[], int cant){
             printf("Second between street: ");
             scanf("%s", addresses[cant].between_2);
 
-            validation_integer(&addresses[cant].inhabitants, "inhabitants");
-            validation_integer(&addresses[cant].number, "address");
+            validate_integer(&addresses[cant].inhabitants, "inhabitants");
+            validate_integer(&addresses[cant].number, "address");
 
             addresses[cant++].has_number = true;
         }
+        system("cls");
     }
     if(cant == 30){
         printf("\aYou have reached the limit of data you can enter...\n");
@@ -53,10 +54,10 @@ int enter_new_data(address addresses[], int cant){
     return cant;
 }
 
-void enter_point(float *point_x, float *point_y)
+void add_point(float *point_x, float *point_y)
 {
-    validation_xy(point_x, "X");
-    validation_xy(point_y, "Y");
+    validate_point_value(point_x, "X");
+    validate_point_value(point_y, "Y");
 
     printf("\n");
 }

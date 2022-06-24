@@ -24,48 +24,46 @@ int selection(){
 }
 
 
-void print_info(address addresses[], int i, ft_table_t *table){
-    if(addresses[i].has_number == 1){
-        ft_printf_ln(table, "%d|%s|%s|%s|%.2f|%.2f|%d|%s", addresses[i].number, addresses[i].main_street, addresses[i].between_1, addresses[i].between_2, addresses[i].coord_X, addresses[i].coord_Y, addresses[i].inhabitants, "yes");
+void write_in_table(address address, ft_table_t *table){
+    char *has_number = "no";
+    if(address.has_number){
+        has_number = "yes";
     }
-    else{
-        ft_printf_ln(table, "%d|%s|%s|%s|%.2f|%.2f|%d|%s", addresses[i].number, addresses[i].main_street, addresses[i].between_1, addresses[i].between_2, addresses[i].coord_X, addresses[i].coord_Y, addresses[i].inhabitants, "no");
-    }
+    ft_printf_ln(table, "%d|%s|%s|%s|%.2f|%.2f|%d|%s", address.number, address.main_street, address.between_1, address.between_2, address.coord_X, address.coord_Y, address.inhabitants, has_number);
+
 }
 
 
-void info(address addresses[], int cant){
+void print_addresses(address addresses[], int cant){
 	ft_table_t *table = ft_create_table();
 	ft_set_cell_prop(table, 0, FT_ANY_COLUMN, FT_CPROP_ROW_TYPE, FT_ROW_HEADER);
     ft_write_ln(table, "No", "Main street", "Between 1", "Between 2", "Coord X", "Coord Y", "Inhabitants", "Has number?");
     int i;
     for (i = 0; i < cant; i++){
-        print_info(addresses, i, table);
+        write_in_table(addresses[i], table);
 	}
 	printf("%s\n", ft_to_string(table));
 }
 
 
 void show_if_has_number(address addresses[], int cant){
-    ft_table_t *table = ft_create_table();
-    ft_set_cell_prop(table, 0, FT_ANY_COLUMN, FT_CPROP_ROW_TYPE, FT_ROW_HEADER);
-    ft_write_ln(table, "No", "Main street", "Between 1", "Between 2", "Coord X", "Coord Y", "Inhabitants", "Has number?");
-	int i;
+    address have_number[30];
+    int counter = 0, i;
     for (i = 0; i < cant; i++){
         if (addresses[i].has_number){
-            print_info(addresses, i, table);
+            have_number[counter++] = addresses[i];
 		}
 	}
-    printf("%s\n", ft_to_string(table));
+    print_addresses(have_number, counter);
 }
 
 
-void show_far_address(address addresses[], int pos, float x, float y){
+void show_farthest_address(address addresses[], int pos, float x, float y){
 	printf("The farthest address to the point %.2f, %.2f is\n", x, y);
 	printf("%s between %s and %s\n", addresses[pos].main_street, addresses[pos].between_1, addresses[pos].between_2);
 }
 
-void if_not_2between(address addresses[], int cant){
+void print_empty_secondary_address_count(address addresses[], int cant){
     int counter = 0, i;
 
     for(i = 0; i < cant; i++){

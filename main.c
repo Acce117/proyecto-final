@@ -17,24 +17,24 @@ int main(){
         select = selection();
         switch (select){
             case 1:
-                info(addresses, log_cant);
+                print_addresses(addresses, log_cant);
                 break;
             case 2:
                 show_if_has_number(addresses, log_cant);
                 break;
             case 3:
-                enter_point(&x, &y);
+                add_point(&x, &y);
                 far_address = euclidean_distance(addresses, log_cant, x, y);
-                show_far_address(addresses, far_address, x, y);
+                show_farthest_address(addresses, far_address, x, y);
                 break;
             case 4:
-                if_not_2between(addresses, log_cant);
+                print_empty_secondary_address_count(addresses, log_cant);
                 break;
             case 5:
                 atleast_5addresses(addresses, log_cant);
                 break;
             case 6:
-                log_cant = enter_new_data(addresses, log_cant);
+                log_cant = add_address(addresses, log_cant);
                 break;
             default:
                 break;
