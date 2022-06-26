@@ -59,7 +59,7 @@ bool validate_repeted_street(char *address_in_base, char *address_usser){
     bool same_string = true;
     if(strlen(address_in_base) == strlen(address_usser)){
         for(i = 0; i < strlen(address_in_base) && same_string; i++){
-            if(address_in_base[i] != address_usser[i]){
+            if(tolower(address_in_base[i]) != tolower(address_usser[i])){
                 same_string = false;
             }
         }
@@ -75,15 +75,15 @@ bool validate_repeted_data(address addresses[], int cant){
     for(i = 0; i < cant && !all_check; i++){
         counter_check = 0;
 
-        if(addresses[i].number == addresses[cant].number){
+        if(addresses[i].number == addresses[cant].number)
             counter_check++;
-        }
-        if(addresses[i].coord_X == addresses[cant].coord_X){
+
+        if(addresses[i].coord_X == addresses[cant].coord_X)
             counter_check++;
-        }
-        if(addresses[i].coord_Y == addresses[cant].coord_Y){
+
+        if(addresses[i].coord_Y == addresses[cant].coord_Y)
             counter_check++;
-        }
+
         if(validate_repeted_street(addresses[i].main_street, addresses[cant].main_street))
             counter_check++;
 

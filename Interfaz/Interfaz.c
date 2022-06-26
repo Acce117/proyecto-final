@@ -26,9 +26,11 @@ int selection(){
 
 void write_in_table(address address, ft_table_t *table){
     char *has_number = "no";
+
     if(address.has_number){
         has_number = "yes";
     }
+
     ft_printf_ln(table, "%d|%s|%s|%s|%.2f|%.2f|%d|%s", address.number, address.main_street, address.between_1, address.between_2, address.coord_X, address.coord_Y, address.inhabitants, has_number);
 
 }
