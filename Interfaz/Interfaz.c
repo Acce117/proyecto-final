@@ -77,7 +77,7 @@ void print_empty_secondary_address_count(address addresses[], int cant){
 void atleast_5addresses(address addresses[], int cant){
     int i, counter = 0;
     for(i = 0; i < cant; i++){
-        if((strlen(addresses[i].between_1) > 0 && strlen(addresses[i].between_2) > 0) && addresses[i].has_number == true){
+        if((strlen(addresses[i].between_1) > 0 && strlen(addresses[i].between_2) > 0) && addresses[i].has_number){
             counter++;
         }
     }
