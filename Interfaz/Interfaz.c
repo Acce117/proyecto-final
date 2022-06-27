@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "Logica/estructura.h"
 #include "lib/fort.h"
 
@@ -65,6 +66,7 @@ void show_farthest_address(address addresses[], int pos, float x, float y){
 	printf("%s between %s and %s\n", addresses[pos].main_street, addresses[pos].between_1, addresses[pos].between_2);
 }
 
+
 void print_empty_secondary_address_count(address addresses[], int cant){
     int counter = 0, i;
 
@@ -75,6 +77,7 @@ void print_empty_secondary_address_count(address addresses[], int cant){
     }
     printf("They are %d addresses that hasn't the two betwenn streets registered.\n", counter);
 }
+
 
 void atleast_5addresses(address addresses[], int cant){
     int i, counter = 0;

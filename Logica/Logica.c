@@ -1,9 +1,11 @@
 #include "estructura.h"
 #include <math.h>
 
+
 float euclidean_ecuation(float point_x_1, float point_x_2, float point_y_1, float point_y_2){
     return sqrt(pow((point_x_1 - point_x_2), 2) + pow((point_y_1 - point_y_2), 2));
 }
+
 
 int euclidean_distance(address addresses[], int cant, float x, float y){
 	int i, pos = 0;
